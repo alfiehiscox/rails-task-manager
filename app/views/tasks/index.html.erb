@@ -1,0 +1,13 @@
+<div class="container w-50">
+  <h1>All Tasks</h1>
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <h3><%= task.completed ? "[X]" : "[ ]" %> : <%= link_to "#{task.title}", task_path(task.id) %></h3>
+      <%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn w-25" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="create container w-50">
+  <%= link_to "Create a new task", tasks_new_path, class: "btn btn-primary" %>
+</div>
